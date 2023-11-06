@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block section %}
+   <div class="container" style="display: flex;
+   justify-content: space-between;
+   align-items: center;">
+      <h2>Ver Cliente</h2>
+      <div class="button-container" style=" margin-left: auto;">
+         <a href="{% url 'factura-create' %}" type="button" class="btn btn-success btn-sm"> <i class="fa-solid fa-coins"></i> Factura</a>
+      </div>
+   </div>
+   <hr>
+{% endblock section %}
+
+{% block maincontent %}
+<div>
+   <table class="table">
+      <thead>
+         <tr>
+            <th scope="col">Cédula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Télefono</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Acciones</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for c in object_list %}
+         <tr>
+            <td>{{ c.cedula }}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.telefono}}</td>
+            <td>{{c.direccion}}</td>
+            <td><button></button></td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+
+   <!-- <div>
+
+      {% for c in object_list %}
+      <div class="card" style="width: 18rem;">
+         <img img src="{% static c.imagen.url %}"  class="card-img-top" alt="...">
+         <div class="card-body">
+            <h5 class="card-title"> {{ c.nombre }}</h5>
+            <div class="card-text" id="mydiv"> </div>
+            <button class="btn btn-primary" id="detalles">Ver detalles</button>
+         </div>
+      </div>
+
+
+      {% endfor %}
+   </div> -->
+{% endblock maincontent %}
+
+<script>
+   document.getElementById("detalles").addEventListener("click", function() {
+      var contenidoHTML = "<p>hhhfghdh</p> <br> <p>{{ c.precio }}</p> ";
+      document.getElementById("mydiv").innerHTML = contenidoHTML;
+   });
+</script>

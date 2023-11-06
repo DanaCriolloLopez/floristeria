@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block section %}
+ <h2>Facturación</h2>
+ <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div>
+
+    <form enctype="multipart/form-data" method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <br>
+        <button type="submit">Save</button>
+        <a class='btn' href="{% url 'producto-list' %}">Cancel</a>
+    </form>
+    
+    </div>
+{% endblock maincontent %}

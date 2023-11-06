@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block section %}
+   <div class="container" style="display: flex;
+   justify-content: space-between;
+   align-items: center;">
+      <h2>Productos en stock</h2>
+      <div class="button-container" style=" margin-left: auto;">
+         <a href="{% url 'factura-create' %}" type="button" class="btn btn-success btn-sm"> <i class="fa-solid fa-coins"></i> Factura</a>
+      </div>
+   </div>
+   <hr>
+{% endblock section %}
+
+{% block maincontent %}
+   <div>
+
+      {% for c in object_list %}
+      <div class="card" style="width: 18rem;">
+         <img img src="{% static c.imagen.url %}"  class="card-img-top" alt="...">
+         <div class="card-body">
+            <h5 class="card-title"> {{ c.nombre }}</h5>
+            <div class="card-text" id="mydiv"> </div>
+            <button class="btn btn-success" id="detalles">Ver detalles</button>
+         </div>
+      </div>
+
+
+      {% endfor %}
+   </div>
+{% endblock maincontent %}
+
+<script>
+   document.getElementById("detalles").addEventListener("click", function() {
+      var contenidoHTML = "<p>hhhfghdh</p> <br> <p>{{ c.precio }}</p> ";
+      document.getElementById("mydiv").innerHTML = contenidoHTML;
+   });
+</script>
