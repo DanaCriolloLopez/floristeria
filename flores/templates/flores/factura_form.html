@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block section %}
+
  <h2>Facturación</h2>
  <hr>
 {% endblock section %}
 
 {% block maincontent %}
-    <div>
-
-    <form enctype="multipart/form-data" method="post">{% csrf_token %}
-            {{ form.as_p }}
-            <br>
-        <button type="submit">Save</button>
-        <a class='btn' href="{% url 'producto-list' %}">Cancel</a>
-    </form>
-    
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">   
+            <div class="card">
+                <div class="card-body">
+                    <form enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                            {{ form | crispy }}
+                            <br>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            &nbsp;
+                            <a class='btn' href="{% url 'producto-list' %}" class="btn btn-danger">Cancelar</a>
+                        </div>        
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock maincontent %}
