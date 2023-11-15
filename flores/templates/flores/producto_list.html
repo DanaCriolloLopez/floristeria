@@ -11,7 +11,7 @@
    <!-- div que contiene el botón carrito -->
    <div class="d-flex justify-content-between align-items-center">
        <div class="navbar-nav">
-           <a class="btn btn-success" > <i class="fas fa-shopping-cart" href="{% url 'factura-create' %}" ></i> Facturar</a>
+           <a class="btn btn-success"  href="{% url 'factura-create' %}"> <i class="fas fa-shopping-cart"  ></i> Facturar</a>
        </div>
        <!-- Botón de inicio de sesión a la derecha -->
        <div style="width: 10px;"></div>
@@ -50,26 +50,25 @@
                <img src="{% static c.imagen.url %}" class="card-img-top" alt="...">
                <div class="card-body">
                   <h5 class="card-title text-success"> {{ c.nombre }}</h5>
-                  <p class="card-text font-weight-bold text-muted">{{ c.tipo }}</p>
                   <p class="card-text precio">{{ c.precio }}</p>
+                  <div id="detail"></div> 
                   <div class="input-group mb-3">
-                     <div class="input-group-append">
-                           <button class="btn btn-success" type="button" >Añadir al carrito</button>
-                           <button class="btn btn-info" type="button" >Detalle</button>
+                     <br>
+                     <div class="input-group-append d-grid gap-2">
+                        <button class="btn btn-success btn-lg" type="button"  onclick="actualizar()">Detalle</button>
                      </div>
                   </div>
                </div>
          </div>
       </div>
+   <script>
+      function actualizar(){
+         var contenidoHTML = `<h5 class="card-title text-success">Detalles</h5><p class="card-text font-weight-bold text-muted">Tipo: {{ c.tipo }}</p><p class="card-text font-weight-bold text-muted">Cantidad stock: {{ c.cantidad }}</p><h5 class="card-title text-success">Pidelas Ahora !!!!</h5><br>`
+         document.getElementById("detail").innerHTML = contenidoHTML;
+      }
+   </script>
       {% endfor %}
    </div>
 </div>
    </div>
 {% endblock maincontent %}
-
-<script>
-   document.getElementById("detalles").addEventListener("click", function() {
-      var contenidoHTML = "<p>hhhfghdh</p> <br> <p>{{ c.precio }}</p> ";
-      document.getElementById("mydiv").innerHTML = contenidoHTML;
-   });
-</script>

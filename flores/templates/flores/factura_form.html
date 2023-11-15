@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block section %}
 
- <h2>Facturación</h2>
+ 
  <hr>
 {% endblock section %}
 
@@ -13,6 +13,7 @@
             <div class="card">
                 <div class="card-body">
                     <form enctype="multipart/form-data" method="post">
+                        <h2>Facturación</h2>
                         {% csrf_token %}
                             {{ form | crispy }}
                             <br>
