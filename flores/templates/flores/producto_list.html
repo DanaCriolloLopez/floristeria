@@ -2,42 +2,6 @@
 {% load static %}
 
 {% block section %}
-   <!-- Barra de menu -->
-<nav class="navbar navbar-light fixed-top" style="background-color: #c7e4d4">
-   <!-- Logo de la tienda -->
-   <a class="navbar-brand" href="#">
-       <img src="https://stickersllamita.com/wp-content/uploads/2022/02/Flor-blanca.png" width="50" height="45" class="d-inline-block align-top" alt="">
-   </a>
-   <!-- div que contiene el botón carrito -->
-   <div class="d-flex justify-content-between align-items-center">
-       <div class="navbar-nav">
-           <a class="btn btn-success"  href="{% url 'factura-create' %}"> <i class="fas fa-shopping-cart"  ></i> Facturar</a>
-       </div>
-       <!-- Botón de inicio de sesión a la derecha -->
-       <div style="width: 10px;"></div>
-           <!-- <a class="btn btn-success" href="{% url 'factura-create' %}" >Facturar</a> -->
-       </div>
-</nav>
-<br>
-<!-- Div que contiene el titulo -->
-<div class="container">
-   <div class="ovalo" style="background: linear-gradient(to right, #318656, #3ba7b0);
-   width: 500px; height: 90px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
-   margin: 0 auto; margin-top: 50px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
-   <h1 class="titulo" style="color: white; font-size: 24px; text-align: center; 
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);">Floristeria Victorino</h1>
-   </div>      
-</div> 
-<br>
-   <div class="container" style="display: flex;
-   justify-content: space-between;
-   align-items: center;">
-      <h5>Productos en stock</h5>
-      <div class="button-container" style=" margin-left: auto;">
-         <!-- <a href="{% url 'factura-create' %}" type="button" class="btn btn-success btn-sm"> <i class="fa-solid fa-coins"></i> Factura</a> -->
-      </div>
-   </div>
-   <hr>
 {% endblock section %}
 
 {% block maincontent %}
@@ -72,3 +36,10 @@
 </div>
    </div>
 {% endblock maincontent %}
+
+<script>
+   document.getElementById("detalles").addEventListener("click", function() {
+      var contenidoHTML = "<p>hhhfghdh</p> <br> <p>{{ c.precio }}</p> ";
+      document.getElementById("mydiv").innerHTML = contenidoHTML;
+   });
+</script>
