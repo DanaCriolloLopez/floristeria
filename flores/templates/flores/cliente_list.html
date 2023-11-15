@@ -4,38 +4,49 @@
    <div class="container" style="display: flex;
    justify-content: space-between;
    align-items: center;">
-      <h2>Ver Cliente</h2>
-      <div class="button-container" style=" margin-left: auto;">
-         <a href="{% url 'factura-create' %}" type="button" class="btn btn-success btn-sm"> <i class="fa-solid fa-coins"></i> Factura</a>
-      </div>
+   <div class="button-container" style=" margin-left: auto;">
+      <a href="{% url 'factura-create' %}" type="button" class="btn btn-success btn-sm"> <i class="fa-solid fa-coins"></i> Factura</a>
    </div>
-   <hr>
+</div>
+<hr>
 {% endblock section %}
 
 {% block maincontent %}
+
+<div class="row">
+   <div class="col-12 col-md-8 offset-md-2">   
+      <div class="card">
+         <div class="card-body">
+            <div class="card-header">
+               <h2 class="card-title">Ver Cliente</h2>
+            </div> 
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <th scope="col">Cédula</th>
+                     <th scope="col">Nombre</th>
+                     <th scope="col">Télefono</th>
+                     <th scope="col">Dirección</th>
+                     <th scope="col">Acciones</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for c in object_list %}
+                  <tr>
+                     <td>{{ c.cedula }}</td>
+                     <td>{{c.nombre}}</td>
+                     <td>{{c.telefono}}</td>
+                     <td>{{c.direccion}}</td>
+                     <td> <a class="btn btn-success" href="{% url "cliente-update" c.id %}">editar</a></td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>      
 <div>
-   <table class="table">
-      <thead>
-         <tr>
-            <th scope="col">Cédula</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Télefono</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Acciones</th>
-         </tr>
-      </thead>
-      <tbody>
-         {% for c in object_list %}
-         <tr>
-            <td>{{ c.cedula }}</td>
-            <td>{{c.nombre}}</td>
-            <td>{{c.telefono}}</td>
-            <td>{{c.direccion}}</td>
-            <td><button></button></td>
-         </tr>
-         {% endfor %}
-      </tbody>
-   </table>
 </div>
 
    <!-- <div>

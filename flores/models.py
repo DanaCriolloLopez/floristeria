@@ -24,6 +24,8 @@ class Cliente(models.Model):
 
     def __str__(self):
         return self.cedula + " " + self.nombre
+    def get_absolute_url(self):
+        return reverse('cliente-list')
 
 class Factura(models.Model):
     """ Facturación """
@@ -39,3 +41,4 @@ class Factura(models.Model):
     
     def get_absolute_url(self):
         return reverse('producto-list')
+    

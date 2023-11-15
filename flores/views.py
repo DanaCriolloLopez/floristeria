@@ -15,8 +15,8 @@ class ProductoDetailView(DetailView):
 class ClienteListView(ListView):
     model = Cliente
 
-class ProductoUpdate(UpdateView):
-    model = Producto
+class ClienteUpdate(UpdateView):
+    model = Cliente
     fields = '__all__' 
 
 class FacturaCreate(CreateView):
