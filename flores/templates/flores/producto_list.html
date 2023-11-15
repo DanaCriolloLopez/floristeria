@@ -5,43 +5,33 @@
 {% endblock section %}
 
 {% block maincontent %}
-
-   <hr>
-   <div>
-      <div class="container">
-         <div class="row">
+<hr>
+<br>
+<div>
+   <div class="container">
+      <div class="row">
       {% for c in object_list %}
-      <div class="col-md-3" >
-         <div class="card mb-3">
-               <img src="{% static c.imagen.url %}" class="card-img-top" alt="...">
-               <div class="card-body">
-                  <h5 class="card-title text-success"> {{ c.nombre }}</h5>
-                  <p class="card-text precio">{{ c.precio }}</p>
-                  <div id="detail"></div> 
-                  <div class="input-group mb-3">
-                     <br>
-                     <div class="input-group-append d-grid gap-2">
-                        <button class="btn btn-success btn-lg" type="button"  onclick="actualizar()">Detalle</button>
+         <div class="col-md-3" >
+            <div class="card mb-3">
+                  <img src="{% static c.imagen.url %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                     <h5 class="card-title text-success"> {{ c.nombre }}</h5>
+                     <p class="card-text precio">{{ c.precio }}</p>
+                     <div id="detail"></div> 
+                     <div class="input-group mb-3">
+                        <br>
+                        <div class="d-grid gap-2 col-12">
+                           <button class="btn btn-success" type="button"  onclick="actualizar()">Detalle</button>
+                        </div>
                      </div>
-                  </div>
-               </div>
-         </div>
-      </div>
-   <script>
-      function actualizar(){
-         var contenidoHTML = `<h5 class="card-title text-success">Detalles</h5><p class="card-text font-weight-bold text-muted">Tipo: {{ c.tipo }}</p><p class="card-text font-weight-bold text-muted">Cantidad stock: {{ c.cantidad }}</p><h5 class="card-title text-success">Pidelas Ahora !!!!</h5><br>`
-         document.getElementById("detail").innerHTML = contenidoHTML;
-      }
-   </script>
+      <script>
+         function actualizar(){
+            var contenidoHTML = `<h5 class="card-title text-success">Detalles</h5><p class="card-text font-weight-bold text-muted">Tipo: {{ c.tipo }}</p><p class="card-text font-weight-bold text-muted">Cantidad stock: {{ c.cantidad }}</p><h5 class="card-title text-success">Pidelas Ahora !!!!</h5><br>`
+            document.getElementById("detail").innerHTML = contenidoHTML;
+         }
+      </script>
       {% endfor %}
+      </div>
    </div>
 </div>
-   </div>
 {% endblock maincontent %}
-
-<script>
-   document.getElementById("detalles").addEventListener("click", function() {
-      var contenidoHTML = "<p>hhhfghdh</p> <br> <p>{{ c.precio }}</p> ";
-      document.getElementById("mydiv").innerHTML = contenidoHTML;
-   });
-</script>

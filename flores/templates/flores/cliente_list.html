@@ -5,16 +5,20 @@
 {% endblock section %}
 
 {% block maincontent %}
-
+<br>
 <div class="row">
    <div class="col-12 col-md-8 offset-md-2">   
-      <div class="card">
+      <div class="card" style=" background-color: white;
+      text-align: center;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4 );">
          <div class="card-body">
-            <div class="card-header">
-               <h2 class="card-title">Ver Cliente</h2>
+            <div class="card-header" style="background-color: #ebfce9;">
+               <center>
+                  <h2 class="card-title">Ver Cliente</h2>
+               </center>
             </div> 
-            <table class="table table-striped">
-               <thead>
+            <table class="table" style="background-color: #ebfce9;">
+               <thead >
                   <tr>
                      <th scope="col">Cédula</th>
                      <th scope="col">Nombre</th>
@@ -23,7 +27,7 @@
                      <th scope="col">Acciones</th>
                   </tr>
                </thead>
-               <tbody>
+               <tbody >
                   {% for c in object_list %}
                   <tr>
                      <td>{{ c.cedula }}</td>
@@ -41,27 +45,4 @@
 </div>      
 <div>
 </div>
-
-   <!-- <div>
-
-      {% for c in object_list %}
-      <div class="card" style="width: 18rem;">
-         <img img src="{% static c.imagen.url %}"  class="card-img-top" alt="...">
-         <div class="card-body">
-            <h5 class="card-title"> {{ c.nombre }}</h5>
-            <div class="card-text" id="mydiv"> </div>
-            <button class="btn btn-primary" id="detalles">Ver detalles</button>
-         </div>
-      </div>
-
-
-      {% endfor %}
-   </div> -->
 {% endblock maincontent %}
-
-<script>
-   document.getElementById("detalles").addEventListener("click", function() {
-      var contenidoHTML = "<p>hhhfghdh</p> <br> <p>{{ c.precio }}</p> ";
-      document.getElementById("mydiv").innerHTML = contenidoHTML;
-   });
-</script>
