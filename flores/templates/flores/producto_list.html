@@ -5,7 +5,7 @@
 {% endblock section %}
 
 {% block maincontent %}
-<hr>
+
 <br>
 <div>
    <div class="container">
@@ -13,8 +13,10 @@
       
          <div class="modal-footer">
             <a class="btn btn-success"  href="{% url 'producto-create' %}" > <i class="fas fa-shopping-cart" ></i> Registrar Producto</a>
+            <br>
+            <br>
          </div>
-            
+            <hr>
             {% for c in object_list %}
             <div class="col-md-3" >
                <div class="card mb-3 h-100 " >
