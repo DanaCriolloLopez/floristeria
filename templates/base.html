@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,26 +8,32 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <!-- mis estilos -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #c7e4d4">
-        <div class="container-fluid">
+        <div class="container-fluid d-flex justify-content-center align-items-center" >
             <a class="navbar-brand" href="http://127.0.0.1:8000/producto">
             <img src="https://stickersllamita.com/wp-content/uploads/2022/02/Flor-blanca.png" width="50" height="45" class="d-inline-block align-top" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/admin">Admin</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8000/cliente">Cliente</a>
-                </li>
-            </ul>
-            <a class="btn btn-success"  href="{% url 'factura-create' %}" > <i class="fas fa-shopping-cart" ></i> Facturar</a>
+            <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/cliente">Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/ventas">Ventas</a>
+                    </li>
+                </ul>
+                <a class="btn btn-success"  href="{% url 'factura-create' %}" > <i class="fas fa-shopping-cart" ></i> Facturar</a>
             </div>
         </div>
     </nav>
@@ -33,11 +41,8 @@
     <br>
     <!-- Div que contiene el titulo -->
     <div class="container">
-        <div class="ovalo" style="background: linear-gradient(to right, #318656, #3ba7b0);
-        width: 500px; height: 90px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
-        margin: 0 auto; margin-top: 30px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
-        <h1 class="titulo" style="color: white; font-size: 24px; text-align: center; 
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);">Floristeria Victorino</h1>
+        <div class="ovalo">        
+            <h1 class="titulo">Floristeria Victorino</h1>
         </div>      
     </div> 
 

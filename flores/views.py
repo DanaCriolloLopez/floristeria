@@ -12,6 +12,10 @@ class ProductoListView(ListView):
 class ProductoDetailView(DetailView):
     model = Producto
 
+class ProductoCreate(CreateView):
+    model = Producto
+    fields = '__all__'
+
 class ClienteListView(ListView):
     model = Cliente
 
@@ -25,3 +29,4 @@ class FacturaCreate(CreateView):
 
 class FacturaListView(ListView): 
     model = Factura
+    fields = '__all__'

@@ -10,11 +10,16 @@
 <div>
    <div class="container">
       <div class="row">
+      
+         <div class="modal-footer">
+            <a class="btn btn-success"  href="{% url 'producto-create' %}" > <i class="fas fa-shopping-cart" ></i> Registrar Producto</a>
+         </div>
+            
             {% for c in object_list %}
             <div class="col-md-3" >
-               <div class="card mb-3">
+               <div class="card mb-3 h-100 " >
                      <img src="{% static c.imagen.url %}" class="card-img-top" alt="...">
-                     <div class="card-body">
+                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-success"> {{ c.nombre }}</h5>
                         <p class="card-text precio">{{ c.precio }}</p>
                         <div id="detail{{c.id}}"></div> 

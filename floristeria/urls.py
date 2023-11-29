@@ -23,7 +23,9 @@ urlpatterns = [
     path('producto/', views.ProductoListView.as_view(), name='producto-list'),
     path('producto/<int:pk>/detail/',
         views.ProductoDetailView.as_view(), name='producto-detail'),
+    path('producto/create/', views.ProductoCreate.as_view(), name='producto-create'),
     path('cliente/', views.ClienteListView.as_view(), name='cliente-list'),
+    path('ventas/', views.FacturaListView.as_view(), name='factura-list'),
 
     # Update
     path('cliente/<int:pk>/update/',views.ClienteUpdate.as_view(),name='cliente-update'), 
