@@ -14,6 +14,9 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+    def get_absolute_url(self):
+        return reverse('producto-list')
 
 class Cliente(models.Model):
     """ Clientes """

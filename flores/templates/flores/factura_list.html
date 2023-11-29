@@ -31,15 +31,12 @@
                                     <td>{{ c.cliente }}</td>
                                     <td>{{ c.producto }}</td>
                                     <td>
-                                        <!-- Agregar el botón para abrir la ventana modal -->
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#verVentaModal{{ c.id }}">
-                                            Ver
-                                        </button>
-
-                                        <!-- Definir la ventana modal -->
+                                        
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#verVentaModal{{ c.id }}">Ver</button>
+                                        <!-- Ventana modal de factura -->
                                         <div class="modal fade" id="verVentaModal{{ c.id }}" tabindex="-1" aria-labelledby="verVentaModalLabel{{ c.id }}" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
-                                                <div class="modal-content" id="modalFactura">
+                                                <div class="modal-content" id="modalFactura" style="background-color: rgb(190, 207, 221);">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="verVentaModalLabel{{ c.id }}">Factura - Venta {{ c.codigo }}</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
