@@ -4,6 +4,8 @@ from django.dispatch import receiver
 from django.urls import reverse
 
 # Create your models here.
+
+
 class Producto(models.Model):
     """ Productos en stock """
     nombre = models.CharField(max_length=50)

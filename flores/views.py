@@ -1,6 +1,25 @@
 from django.urls import reverse_lazy 
 from django.views.generic import CreateView, DeleteView, UpdateView, ListView, DetailView
 from flores.models import *
+from .serializers import *
+from rest_framework import viewsets
+
+# Create your views api.
+class ClienteViewSet(viewsets.ModelViewSet):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+ 
+ 
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+
+class FacturaViewSet(viewsets.ModelViewSet):
+    queryset = Factura.objects.all()
+    serializer_class = FacturaSerializer
+
+
 
 # Create your views here.
 #Vistas genericas de django 
@@ -30,3 +49,5 @@ class FacturaCreate(CreateView):
 class FacturaListView(ListView): 
     model = Factura
     fields = '__all__'
+    
+    
